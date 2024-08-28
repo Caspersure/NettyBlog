@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>3C7D580D-78D0-478D-B5A5-154C077FDF0F</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="8.1.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\src\NettyBlog.Service\NettyBlog.Service.csproj" />
+      <ProjectReference Include="..\src\NettyBlogWeb\NettyBlogWeb\NettyBlogWeb.csproj" />
+    </ItemGroup>
+
+</Project>
