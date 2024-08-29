@@ -12,9 +12,18 @@
         <PackageReference Include="Masa.Contrib.Exceptions" Version="$(MASAFrameworkVersion)"/>
         <PackageReference Include="Masa.Contrib.Service.MinimalAPIs" Version="$(MASAFrameworkVersion)"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+        <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+        <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\NettyBlog.Contracts\NettyBlog.Contracts.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Services\Extension\" />
     </ItemGroup>
 </Project>

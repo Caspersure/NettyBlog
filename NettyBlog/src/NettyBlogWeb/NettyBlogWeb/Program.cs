@@ -1,3 +1,4 @@
+using System.Reflection;
 using NettyBlogWeb.Client.Pages;
 using NettyBlogWeb.Components;
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
-
+builder.Services.AddAutoRegistrationCaller(Assembly.Load("NettyBlog.Caller"));
 builder.Services.AddMasaBlazor(options =>
 {
     options.ConfigureSsr(ssr =>

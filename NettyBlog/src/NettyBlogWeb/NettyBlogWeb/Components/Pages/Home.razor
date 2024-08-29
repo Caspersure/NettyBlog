@@ -1,7 +1,15 @@
 ﻿@page "/"
-
+@inject PostCaller PostCaller
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+       var t =  await PostCaller.GetListAsync();
+        await base.OnInitializedAsync();
+    }
+}

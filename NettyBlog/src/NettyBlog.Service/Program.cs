@@ -1,5 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using NettyBlog.Service.Services.MiddleWares;
 
+
+//import appsettings
+IConfiguration _configuration = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json")
+    .Build();
+//import configuration
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(_configuration)
+    .CreateLogger();
+var builder = WebApplication.CreateBuilder(args);
+//use Serilog
+builder.Host.UseSerilog();
 var app = builder.Services
     .AddEndpointsApiExplorer()
     .AddSwaggerGen(options =>
@@ -14,13 +27,16 @@ var app = builder.Services
             options.IncludeXmlComments(item, true);
         options.DocInclusionPredicate((docName, action) => true);
     })
-    .AddEventBus()
+    .AddEventBus(eventBusBuilder =>
+    {
+        //use log middleware
+        eventBusBuilder.UseMiddleware(typeof(LoggingEventMiddleware<>));
+    })
     .AddMasaDbContext<NettyBlogDbContext>(opt => { opt.UseMySQL(); })
     .AddAutoInject()
     .AddServices(builder, option => option.MapHttpMethodsForUnmatched = new string[] { "PostEntity" });
 
-app.UseMasaExceptionHandler();
-
+    app.UseMasaExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger().UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "NettyBlogApp"));

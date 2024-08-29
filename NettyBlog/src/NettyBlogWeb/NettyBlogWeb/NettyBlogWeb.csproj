@@ -4,10 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DebuggerSupport>true</DebuggerSupport>
     </PropertyGroup>
 
 
     <ItemGroup>
+        <ProjectReference Include="..\NettyBlog.Caller\NettyBlog.Caller.csproj" />
         <ProjectReference Include="..\NettyBlogWeb.Client\NettyBlogWeb.Client.csproj"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0"/>
     </ItemGroup>

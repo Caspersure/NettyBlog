@@ -18,8 +18,10 @@ public class NettyBlogDbContext : MasaDbContext
 
     private static void ConfigEntities(ModelBuilder modelBuilder)
     {
+        #region PostEntity configuration
 
-        var todoBuilder =
-            modelBuilder.Entity<PostEntity>().Property(e => e.Title).HasMaxLength(128);
+        modelBuilder.Entity<PostEntity>().ToTable("post");
+        modelBuilder.Entity<PostEntity>().Property(e => e.Title).HasMaxLength(512);
+        #endregion
     }
 }
