@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DebuggerSupport>true</DebuggerSupport>
+    </PropertyGroup>
+
+    <ItemGroup>
+         <PackageReference Include="Masa.Blazor" Version="1.6.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NettyBlog.Caller\NettyBlog.Caller.csproj" />
+    </ItemGroup>
+</Project>

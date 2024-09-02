@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NettyBlog.Service\NettyBlog.Service.csproj" />
-      <ProjectReference Include="..\NettyBlogWeb\NettyBlogWeb\NettyBlogWeb.csproj" />
+      <ProjectReference Include="..\NettyBlog.Web\NettyBlog.Web.csproj" />
     </ItemGroup>
 
 </Project>
